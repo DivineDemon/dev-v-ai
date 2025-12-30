@@ -342,7 +342,7 @@ const App: React.FC = () => {
                 Production-first mindset.
               </p>
             </div>
-            {/* Added empty space columns before the navigation as requested */}
+            {/* Added empty space columns before the navigation as requested: (2:2:1:1 layout) */}
             <div className="hidden md:block col-span-1 md:col-span-2"></div> 
             <div className="col-span-1 space-y-4">
               <h4 className="text-white font-black uppercase tracking-widest text-[10px]">NAVIGATION</h4>
@@ -421,10 +421,10 @@ const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index
     viewport={{ once: true, margin: "-50px" }}
     transition={{ delay: index * 0.1 }}
     whileHover={{ y: -8 }}
-    className={`group rounded-3xl bg-surface-dark border border-border-dark overflow-hidden flex flex-col transition-all duration-500 hover:border-primary/50 ${project.isWide ? 'md:col-span-2' : ''} ${project.isHigh ? 'md:row-span-2 h-full' : ''}`}
+    className={`group rounded-3xl bg-surface-dark border border-border-dark overflow-hidden flex flex-col transition-all duration-500 hover:border-primary/50 ${project.isWide ? 'md:col-span-2' : ''} ${project.isHigh ? 'md:row-span-2 min-h-[600px]' : ''}`}
   >
     {project.image && (
-      <div className={`relative overflow-hidden ${project.isHigh ? 'flex-[4]' : 'h-72'}`}>
+      <div className={`relative overflow-hidden ${project.isHigh ? 'flex-grow h-full' : 'h-72'}`}>
         <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1" />
         <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/40 to-transparent"></div>
         <div className="absolute bottom-6 left-6 p-2 bg-black/60 backdrop-blur-md rounded-xl border border-white/10">
@@ -432,7 +432,7 @@ const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index
         </div>
       </div>
     )}
-    <div className={`p-8 flex flex-col ${project.isHigh ? 'flex-1' : ''}`}>
+    <div className={`p-8 flex flex-col ${project.isHigh ? 'flex-shrink-0' : 'flex-grow'}`}>
       {!project.image && (
          <div className="size-12 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-white border border-slate-700 group-hover:bg-primary group-hover:border-primary transition-colors">
             <span className="material-symbols-outlined">{project.icon}</span>
@@ -441,7 +441,6 @@ const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index
       <h3 className="text-2xl font-black text-white mb-3 group-hover:text-primary transition-colors uppercase italic tracking-tight">{project.title}</h3>
       <p className="text-text-muted text-xs leading-relaxed mb-4 font-mono uppercase tracking-tight line-clamp-3">{project.description}</p>
       
-      {/* Container for tech badges, kept close to description */}
       <div className="flex flex-wrap gap-2 mb-6">
         {project.tags?.map((tag: string) => (
           <span key={tag} className="text-[9px] font-black text-primary/80 border border-primary/20 px-2 py-0.5 rounded-full uppercase tracking-tighter">#{tag}</span>
