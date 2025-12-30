@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JD.AI | Senior AI/ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "primary-foreground": "#ffffff",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#020617", 
+                        "surface-dark": "#0f172a", 
+                        "border-dark": "#1e293b", 
+                        "text-muted": "#94a3b8", 
+                        "accent": "#0ea5e9", 
+                    },
+                    fontFamily: {
+                        "sans": ["JetBrains Mono", "monospace"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    animation: {
+                        'marquee': 'marquee 40s linear infinite',
+                        'marquee-reverse': 'marquee-reverse 40s linear infinite',
+                        'scroll-up': 'scroll-up 30s linear infinite',
+                        'scroll-down': 'scroll-down 30s linear infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'marquee-reverse': {
+                            '0%': { transform: 'translateX(-50%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        },
+                        'scroll-up': {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-50%)' },
+                        },
+                        'scroll-down': {
+                            '0%': { transform: 'translateY(-50%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155; 
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .mesh-bg {
+            background-image: radial-gradient(at 0% 0%, rgba(60, 131, 246, 0.15) 0px, transparent 50%), 
+                             radial-gradient(at 100% 0%, rgba(60, 131, 246, 0.10) 0px, transparent 50%);
+        }
+        .marquee-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .vertical-mask {
+            mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #020617;
+            overflow-x: hidden;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react,react-dom",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="bg-background-dark text-slate-100 antialiased selection:bg-primary/30 selection:text-white">
+    <div id="root"></div>
+</body>
+</html>
