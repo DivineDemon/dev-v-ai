@@ -1,7 +1,7 @@
 
 import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useSpring, useTransform, animate, useInView } from 'framer-motion';
-import { EXPERIENCES, PROJECTS, ENDORSEMENTS, TECH_STACK } from './constants';
+import { motion, useScroll, useSpring, animate, useInView } from 'framer-motion';
+import { EXPERIENCES, PROJECTS, ENDORSEMENTS } from './constants';
 import OptimizationChart from './components/OptimizationChart';
 
 const App: React.FC = () => {
@@ -331,8 +331,8 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="border-t border-white/5 bg-surface-dark/20 relative z-10">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-16 mb-20">
+            <div className="col-span-1 md:col-span-2 space-y-6">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-2xl text-white tracking-tight font-mono uppercase">JD.AI</span>
               </div>
@@ -342,9 +342,9 @@ const App: React.FC = () => {
                 Production-first mindset.
               </p>
             </div>
-            {/* User requested empty space BEFORE navigation */}
-            <div className="hidden md:block"></div> 
-            <div className="space-y-4">
+            {/* Added empty space columns before the navigation as requested */}
+            <div className="hidden md:block col-span-1 md:col-span-2"></div> 
+            <div className="col-span-1 space-y-4">
               <h4 className="text-white font-black uppercase tracking-widest text-[10px]">NAVIGATION</h4>
               <ul className="space-y-3 text-[10px] font-bold text-text-muted">
                 <li><a className="hover:text-primary transition-colors" href="#about">ABOUT.MD</a></li>
@@ -352,7 +352,7 @@ const App: React.FC = () => {
                 <li><a className="hover:text-primary transition-colors" href="#stack">ENV.CONF</a></li>
               </ul>
             </div>
-            <div className="space-y-4">
+            <div className="col-span-1 space-y-4">
               <h4 className="text-white font-black uppercase tracking-widest text-[10px]">SOCIAL</h4>
               <ul className="space-y-3 text-[10px] font-bold text-text-muted">
                 <li><a className="hover:text-primary transition-colors" href="#">GITHUB</a></li>
@@ -421,10 +421,10 @@ const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index
     viewport={{ once: true, margin: "-50px" }}
     transition={{ delay: index * 0.1 }}
     whileHover={{ y: -8 }}
-    className={`group rounded-3xl bg-surface-dark border border-border-dark overflow-hidden flex flex-col transition-all duration-500 hover:border-primary/50 ${project.isWide ? 'md:col-span-2' : ''} ${project.isHigh ? 'md:row-span-2' : ''}`}
+    className={`group rounded-3xl bg-surface-dark border border-border-dark overflow-hidden flex flex-col transition-all duration-500 hover:border-primary/50 ${project.isWide ? 'md:col-span-2' : ''} ${project.isHigh ? 'md:row-span-2 h-full' : ''}`}
   >
     {project.image && (
-      <div className={`relative overflow-hidden ${project.isHigh ? 'h-full flex-[2]' : 'h-72'}`}>
+      <div className={`relative overflow-hidden ${project.isHigh ? 'flex-[4]' : 'h-72'}`}>
         <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1" />
         <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/40 to-transparent"></div>
         <div className="absolute bottom-6 left-6 p-2 bg-black/60 backdrop-blur-md rounded-xl border border-white/10">
@@ -438,11 +438,11 @@ const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index
             <span className="material-symbols-outlined">{project.icon}</span>
          </div>
       )}
-      <h3 className="text-2xl font-black text-white mb-4 group-hover:text-primary transition-colors uppercase italic tracking-tight">{project.title}</h3>
-      <p className="text-text-muted text-sm leading-relaxed mb-6 font-mono uppercase tracking-tight">{project.description}</p>
+      <h3 className="text-2xl font-black text-white mb-3 group-hover:text-primary transition-colors uppercase italic tracking-tight">{project.title}</h3>
+      <p className="text-text-muted text-xs leading-relaxed mb-4 font-mono uppercase tracking-tight line-clamp-3">{project.description}</p>
       
       {/* Container for tech badges, kept close to description */}
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-2 mb-6">
         {project.tags?.map((tag: string) => (
           <span key={tag} className="text-[9px] font-black text-primary/80 border border-primary/20 px-2 py-0.5 rounded-full uppercase tracking-tighter">#{tag}</span>
         ))}
